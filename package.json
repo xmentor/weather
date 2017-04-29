@@ -1,7 +1,7 @@
 {
   "name": "weather",
   "version": "1.0.0",
-  "description": "[Preview](https://xmentor.github.io/weather/dest)",
+  "description": "Simple weather app",
   "main": "src/js/weather.js",
   "jsnext:main": "dest/js/weather.min.js",
   "scripts": {},
