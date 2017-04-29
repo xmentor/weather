@@ -1,0 +1,32 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "[Preview](https://xmentor.github.io/weather/dest)",
+  "main": "src/js/weather.js",
+  "jsnext:main": "dest/js/weather.min.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xmentor/weather.git"
+  },
+  "keywords": [
+    "weather-app",
+    "weather"
+  ],
+  "author": "Kamil Kondratowicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xmentor/weather/issues"
+  },
+  "homepage": "https://github.com/xmentor/weather#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-closure-compiler": "^0.4.0",
+    "gulp-copy": "^1.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-sass": "^3.1.0",
+    "gulp-string-replace": "^0.4.0",
+    "gulp-template": "^4.0.0"
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+    <head>
+        <title><%= title %></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="<%= desc %>">
+        <link rel="stylesheet" href="<%= css %>">
+    </head>
+    <body>
+        <div class="app">
+            <header class="header" id="header">
+                <h1 class="header__logo logo">
+                    <img src="img/weather.png" alt="Weather" class="logo__img">
+                </h1>
+                <nav class="header__nav nav">
+                    <ul class="nav__menu menu">
+                       <li class="menu__item">
+                            <button class="menu__button menu__button_refresh">
+                                <img src="img/refresh.svg" alt="Refresh">
+                            </button>
+                        </li>
+                        <li class="menu__item">
+                            <button class="menu__button menu__button_add">
+                                <img src="img/add.svg" alt="Add">
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main class="main" id="main">
+
+            </main> 
+            <footer class="footer" id="footer">
+                <span class="footer__copyright">
+                    Copyright &copy; Kamil Kondratowicz
+                </span>
+            </footer>
+        </div>
+        <div class="modal" role="dialog" aria-labelledby="label" aria-describedby="desc" tabindex="-1">
+            <button class="modal__close">
+                <img src="img/close.svg" alt="Close">
+            </button>
+            <div class="modal__head" id="label">
+                Add the weather
+            </div>
+            <div class="modal__desc" id="desc">
+                Enter city name(and optional country code, for exmaple: pl).
+            </div>
+            <form class="modal__form form" action="#">
+                <div class="form__row">
+                    <label for="city-name" class="form__label">City*:</label>
+                    <input class="form__input form__input_city" id="city-name" required>
+                </div>
+                <div class="form__row">
+                    <label for="conutry-code" class="form__label">Country code(optional):</label>
+                    <input class="form__input form__input_code" id="conutry-code">
+                </div>
+                <button class="form__btn" type="submit">
+                    Add weather
+                </button>
+            </form>
+        </div>
+        <script src="<%= js %>"></script>
+    </body>
+</html>
