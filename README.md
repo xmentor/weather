@@ -1,2 +1,2 @@
 # Weather
-[Preview](https://xmentor.github.io/weather/dest)
+[Preview](http://xmentor2.pro-linuxpl.com/weather/)
