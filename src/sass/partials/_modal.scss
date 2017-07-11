@@ -1,0 +1,32 @@
+.modal{
+    outline: 0;
+    background-color: #fff;
+    border: 2px solid #23a24d;
+    width: 350px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 9999;
+    &__close{
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 25px;
+    }
+    &__head{
+        font-size: 24px;
+        padding: 15px 25px;
+        border-bottom: 2px solid #23a24d;
+    }
+    &__desc{
+        padding: 15px 25px;
+    }
+    &__form{
+        padding: 0 25px 15px 25px;
+    }
+    &_open{
+        display: block;
+    }
+}

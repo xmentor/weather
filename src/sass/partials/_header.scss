@@ -1,0 +1,22 @@
+.header{
+    min-height: 77px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+    &__logo{
+        margin: 0;
+    }
+}
+.logo{
+    &__link{
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        &:focus{
+            outline: 1px solid #23a24d;
+            outline-offset: 1px;
+        }
+    }
+}

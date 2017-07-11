@@ -1,0 +1,33 @@
+.form{
+    &__label{
+        display: block;
+    }
+    &__input{
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #333;
+        font-family: sans-serif;
+        transition: border-color .2s ease-in-out;
+        &:hover,
+        &:focus{
+            border-color: #23a24d;
+        }
+    }
+    &__row{
+        margin-bottom: 10px;
+    }
+    &__btn{
+        outline: 1px solid #23a24d;
+        padding: 5px 10px;
+        color: #333;
+        font-family: sans-serif;
+        margin-left: 2px;
+        transition: background-color .2s ease-in-out, color .2s ease-in-out;
+        &:hover,
+        &:focus{
+            background-color: #23a24d;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}

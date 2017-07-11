@@ -1,0 +1,13 @@
+.nav__menu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+        
+    display: flex;
+}
+.menu__item + .menu__item{
+    margin-left: 50px;
+}
+.menu__button{
+    width: 35px;
+}

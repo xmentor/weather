@@ -11,12 +11,12 @@
 
     // sass to css
     gulp.task('sass', function() {
-        return gulp.src('src/sass/*.scss')
+        return gulp.src('src/sass/main.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest('dest/css'));
     });
     
-    // autoprefixe css
+    // autoprefixer css
     gulp.task('autoprefixer', ['sass'], function() {
         return gulp.src('dest/css/*.css')
             .pipe(autoprefixer({
@@ -38,8 +38,8 @@
         return gulp.src('src/index.html')
             .pipe(template({lang: 'en',
                             title: 'Weather',
-                            desc: '',
-                            css: 'css/weather.css',
+                            desc: 'Simple weather app, written in pure JavaScript',
+                            css: 'css/main.css',
                             js: 'js/weather.min.js'})
                  )
             .pipe(gulp.dest('dest'));
@@ -68,8 +68,7 @@
     // copy images
     gulp.task('default', ['replace'], function() {
        return gulp.src('src/img/**')
-           .pipe(copy('dest', {prefix: 1}))
-           .pipe(gulp.dest('dest/img'));
+           .pipe(copy('dest', {prefix: 1}));
     });
     
 }(require('gulp')));
