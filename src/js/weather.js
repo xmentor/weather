@@ -34,64 +34,78 @@
         }
     }
     
-    class WeatherRender {
+    class WeatherRenderer {
         constructor(data, id) {
             this.id = id;
             this.addWeatherToBody(data);
         }
         weatherTemplate(data) {
-            const weatherContainer = document.createElement('div');
+            const weatherContainer = document.createElement('article');
             
             weatherContainer.classList.add('weather');
             weatherContainer.tabIndex = 0;
             weatherContainer.dataset.id = this.id;
             
-            weatherContainer.innerHTML = `<button class="weather__remove remove">
-                                                <img src="img/close.svg" alt="Remove" class="remove__img">
+            weatherContainer.innerHTML = `<button class="weather__remove">
+                                                <img src="img/close.svg" alt="Remove">
                                             </button>
-                                            <div class="weather__location">
+                                            <h2 class="weather__location">
                                                 ${data.name}, ${data.sys.country}
-                                            </div>
+                                            </h2>
                                             <div class="weather__date">
                                                 <time datetime="${getTime()}">
                                                     ${getTime('short')}
                                                 </time>
                                             </div>
-                                            <div class="weather__desc">
+                                            <div class="weather__description">
                                                 ${data.weather[0].main}
                                             </div>
-                                            <div class="weather__present present">
-                                                <div class="present__visual visual">
-                                                    <img src="img/weather/${data.weather[0].icon}.svg" alt="${data.weather[0].description}" class="visual__img">
-                                                    <div class="visual__temperature temperature">
-                                                        <span class="temperature__num">
+                                            <div class="weather__row">
+                                                <div class="weather__information information">
+                                                    <img src="img/weather/${data.weather[0].icon}.svg" alt="" width="100">
+                                                    <div class="information__temperature temperature">
+                                                        <span class="temperature__value">
                                                             ${convertKelvinToCelsius(data.main.temp)}
                                                         </span>
-                                                        <span class="temperature__deg">&deg;C</span>
-                                                    </div>
-                                                </div>
-                                                <div class="present__desc desc">
-                                                    <div class="desc__humidity">
-                                                        Humidity: <span class="desc__value">${data.main.humidity}%</span>
-                                                    </div>
-                                                    <div class="desc__wind">
-                                                        Wind: <span class="desc__value">
-                                                                ${convertSpeedWind(data.wind.speed)} km/h
-                                                              </span>
-                                                    </div>
-                                                    <div class="desc__max-temp">
-                                                        Max. temperature: 
-                                                        <span class="desc__value">
-                                                            ${convertKelvinToCelsius(data.main.temp_max)}&deg;C
-                                                        </span>
-                                                    </div>
-                                                    <div class="desc__min-temp">
-                                                        Min. temperature: 
-                                                        <span class="desc__value">
-                                                            ${convertKelvinToCelsius(data.main.temp_min)}&deg;C
+                                                        <span class="temperature__deg">
+                                                            &deg;C<span class="visuallyhidden">elsius</span>
                                                         </span>
                                                     </div>
                                                 </div>
+                                                <dl class="weather__details details">
+                                                    <div class="details__row">
+                                                        <dt class="details__label">
+                                                            Humidity
+                                                        </dt>
+                                                        <dd class="details__value">
+                                                            ${data.main.humidity}%
+                                                        </dd>
+                                                    </div>
+                                                    <div class="details__row">
+                                                        <dt class="details__label">
+                                                            Wind
+                                                        </dt>
+                                                        <dd class="details__value">
+                                                            ${convertSpeedWind(data.wind.speed)} km/h
+                                                        </dd>
+                                                    </div>
+                                                    <div class="details__row">
+                                                        <dt class="details__label">
+                                                            <abbr title="Maximum">Max.</abbr> temperature
+                                                        </dt>
+                                                        <dd class="details__value">
+                                                            ${convertKelvinToCelsius(data.main.temp_max)}&deg;C<span class="visuallyhidden">elsius</span>
+                                                        </dd>
+                                                    </div>
+                                                    <div class="details__row">
+                                                        <dt class="details__label">
+                                                            <abbr title="Minimum">Min.</abbr> temperature
+                                                        </dt>
+                                                        <dd class="details__value">
+                                                            ${convertKelvinToCelsius(data.main.temp_min)}&deg;C<span class="visuallyhidden">elsius</span>
+                                                        </dd>
+                                                    </div>
+                                                </dl>
                                             </div>`;
             
             return weatherContainer;
@@ -102,7 +116,7 @@
         }
     }
 
-    class GetWeather {
+    class WeatherProvider {
         constructor(city, id) {
             this.urlApi = 'http://api.openweathermap.org/data/2.5/weather';
             this.keyApi = '44474d9d409dc4313c91127230d0a569';
@@ -129,7 +143,7 @@
                 if(json.cod !== 200) {
                     throw Error('Something is wrong :/ Try later.');
                 }
-                new WeatherRender(json, this.id);
+                new WeatherRenderer(json, this.id);
             })
             .catch((e) => {
                 throw Error(e.message);
@@ -149,7 +163,7 @@
                 return false;
             }
             cites.forEach((data) => {
-                new GetWeather(data.nameCity, data.idCity);
+                new WeatherProvider(data.nameCity, data.idCity);
             });
         }
         initEvents() {
@@ -191,7 +205,7 @@
                 const id = Date.now();
                 /* http://stackoverflow.com/a/25677072 */
                 if(/^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/.test(cityName)) {
-                    new GetWeather(city, id);
+                    new WeatherProvider(city, id);
 
                     formModal.parentNode.classList.remove('modal_open');
                     cites.push({nameCity: city, idCity: id});
