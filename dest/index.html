@@ -4,39 +4,38 @@
         <title>Weather</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <meta name="description" content="">
-        <link rel="stylesheet" href="css/weather.css">
+        <meta name="description" content="Simple weather app, written in pure JavaScript">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="app">
-            <header class="header" id="header">
-                <h1 class="header__logo logo">
-                    <img src="img/weather.png" alt="Weather" class="logo__img">
-                </h1>
-                <nav class="header__nav nav">
-                    <ul class="nav__menu menu">
-                       <li class="menu__item">
-                            <button class="menu__button menu__button_refresh">
-                                <img src="img/refresh.svg" alt="Refresh">
-                            </button>
-                        </li>
-                        <li class="menu__item">
-                            <button class="menu__button menu__button_add">
-                                <img src="img/add.svg" alt="Add">
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <main class="main" id="main">
-
-            </main> 
-            <footer class="footer" id="footer">
-                <span class="footer__copyright">
-                    Copyright &copy; Kamil Kondratowicz
-                </span>
-            </footer>
-        </div>
+        <header class="header" id="header">
+            <h1 class="header__logo logo">
+                <a href="index.html" class="logo__link">
+                    <img src="img/weather.png" alt="Weather" width="200">
+                </a>
+            </h1>
+            <nav class="header__nav nav">
+                <h2 class="visuallyhidden">Navigation</h2>
+                <ul class="nav__menu menu">
+                    <li class="menu__item">
+                        <button class="menu__button menu__button_refresh">
+                            <img src="img/refresh.svg" alt="Refresh">
+                        </button>
+                    </li>
+                    <li class="menu__item">
+                        <button class="menu__button menu__button_add">
+                            <img src="img/add.svg" alt="Add">
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main" id="main"></main> 
+        <footer class="footer" id="footer">
+            <p class="footer__copyright">
+                Copyright &copy; Kamil Kondratowicz
+            </p>
+        </footer>
         <div class="modal" role="dialog" aria-labelledby="label" aria-describedby="desc" tabindex="-1">
             <button class="modal__close">
                 <img src="img/close.svg" alt="Close">
