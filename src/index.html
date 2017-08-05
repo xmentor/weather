@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="<%= lang %>">
+<html lang="en">
     <head>
-        <title><%= title %></title>
+        <title>Weather</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <meta name="description" content="<%= desc %>">
-        <link rel="stylesheet" href="<%= css %>">
+        <meta name="description" content="Simple weather app, written in pure JavaScript">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <header class="header" id="header">
@@ -18,12 +18,12 @@
                 <h2 class="visuallyhidden">Navigation</h2>
                 <ul class="nav__menu menu">
                     <li class="menu__item">
-                        <button class="menu__button menu__button_refresh">
+                        <button class="menu__button menu__button_refresh" aria-label="Refresh all weather">
                             <img src="img/refresh.svg" alt="Refresh">
                         </button>
                     </li>
                     <li class="menu__item">
-                        <button class="menu__button menu__button_add">
+                        <button class="menu__button menu__button_add" aria-label="Open the modal to add a new weather">
                             <img src="img/add.svg" alt="Add">
                         </button>
                     </li>
@@ -44,22 +44,26 @@
                 Add the weather
             </div>
             <div class="modal__desc" id="desc">
-                Enter city name(and optional country code, for exmaple: pl).
+                Enter city name (and optional country code, for exmaple: pl).
             </div>
             <form class="modal__form form" action="#">
                 <div class="form__row">
-                    <label for="city-name" class="form__label">City*:</label>
-                    <input class="form__input form__input_city" id="city-name" required>
+                    <label for="city-name" class="form__label">City (required):</label>
+                    <input class="form__input form__input_city" id="city-name" placeholder="e.g. Warsaw, Barcelona" aria-required="true" aria-invalid="false">
                 </div>
                 <div class="form__row">
-                    <label for="conutry-code" class="form__label">Country code(optional):</label>
-                    <input class="form__input form__input_code" id="conutry-code">
+                    <label for="conutry-code" class="form__label">Country code (optional):</label>
+                    <input class="form__input form__input_code" id="conutry-code" placeholder="e.g. pl, es">
                 </div>
                 <button class="form__btn" type="submit">
-                    Add weather
+                    Add
                 </button>
             </form>
         </div>
-        <script src="<%= js %>"></script>
+        <div class="visuallyhidden status" role="status" aria-live="polite" aria-atomic="true"></div>
+        <script src="js/weather.min.js"></script>
+        <script>
+            new WeatherApp();
+        </script>
     </body>
 </html>
