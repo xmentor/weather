@@ -1,27 +1,41 @@
 .form{
     &__label{
         display: block;
+        margin-bottom: 2px;
     }
     &__input{
         width: 100%;
         padding: 5px;
-        border: 1px solid #333;
+        border: 1px solid #ffffff;
+        outline: 1px solid #333333;
         font-family: sans-serif;
-        transition: border-color .2s ease-in-out;
+        transition: border-color .2s ease-in-out, outline-color .2s ease-in-out;
         &:hover,
         &:focus{
             border-color: #23a24d;
+            outline-color: #23a24d;
+        }
+        &[aria-invalid='true'] {
+            border-color: transparent;
+            outline-color: #af0000;
+            box-shadow: 0 0 5px #af0000;
+            &:focus{
+                border-color: transparent;
+                outline-color: #af0000;
+                box-shadow: 0 0 5px #af0000;
+            }
         }
     }
     &__row{
         margin-bottom: 10px;
     }
     &__btn{
+        border: 2px solid #ffffff;
         outline: 1px solid #23a24d;
+        outline-offset: 0;
         padding: 5px 10px;
         color: #333;
         font-family: sans-serif;
-        margin-left: 2px;
         transition: background-color .2s ease-in-out, color .2s ease-in-out;
         &:hover,
         &:focus{
